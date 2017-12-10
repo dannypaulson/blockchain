@@ -71,26 +71,6 @@ int main(int argc, const char * argv[]) {
     chain myChain(blocks);
     
     //solve the blockchain!
-    for (int j = 0; j < 3; j++) {
-        for (int i = 0; i < 3; i++) {
-            myChain.rotateBlock(0, tb);
-            if (myChain.isSolved()) {
-                cout << "solved" << endl;
-                return 0;
-            }
-        }
-        myChain.rotateBlock(0, lr);
-    }
-    for (int k = 0; k < 2; k++) {
-        for (int i = 0; i < 3; i++) {
-            myChain.rotateBlock(0, tb);
-            if (myChain.isSolved()) {
-                cout << "solved" << endl;
-                return 0;
-            }
-        }
-        myChain.rotateBlock(0, fb);
-        myChain.rotateBlock(0, fb);
-    }
+    
     return 0;
 }
