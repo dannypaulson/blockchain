@@ -15,10 +15,10 @@ class side {
     Color color;
     
 public:
-    side();
-    side(Color c);
-    ~side();
-    Color getColor();
+    side(); //default constructor
+    side(Color c); //other constructor
+    ~side(); //destructor
+    Color getColor(); //function to get the colour of a side
 };
 
 #endif /* side_h */

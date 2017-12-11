@@ -12,14 +12,14 @@
 
 using namespace std;
 
-block::block() {
+block::block() { //it wouldnt let me get by without a default constructor so i made one up
     for (int i = 0; i < 6; i++) {
         sides[i] = side();
     }
     name = "";
 }
 
-block::block(side* sds, string nm) {
+block::block(side* sds, string nm) { //initialize with an array of sides and a name
     for (int i = 0; i < 6; i++) {
         sides[i] = sds[i];
     }
@@ -30,7 +30,7 @@ block::~block() {
     
 }
 
-side* block::getSides() {
+side* block::getSides() { //pretty self explanatory
     return sides;
 }
 

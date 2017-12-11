@@ -14,9 +14,9 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    //make blocks
+    //make blocks based on blocks that exist in real life
     
-    //block 0
+    //block 0 (start indexing from 0 cause this isnt MATLAB
     side top_0(blue);
     side bottom_0(white);
     side left_0(red);
@@ -71,6 +71,6 @@ int main(int argc, const char * argv[]) {
     chain myChain(blocks);
     
     //solve the blockchain!
-    
+    //.......
     return 0;
 }
