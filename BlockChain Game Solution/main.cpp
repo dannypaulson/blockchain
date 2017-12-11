@@ -72,5 +72,22 @@ int main(int argc, const char * argv[]) {
     
     //solve the blockchain!
     //.......
+    
+    for (int i = 0; i < 24; i++) {
+        for (int j = 0; j < 24; j++) {
+            for (int k = 0; k < 24; k++) {
+                for (int m = 0; m < 24; m++) {
+                    
+                    if (myChain.isSolved())
+                        return 0;
+                    else {
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     return 0;
 }
