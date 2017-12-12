@@ -20,3 +20,7 @@ side::side() {
 side::~side() {
     
 }
+
+Color side::getColor() {
+    return color;
+}
