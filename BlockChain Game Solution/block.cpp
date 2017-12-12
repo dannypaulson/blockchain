@@ -17,6 +17,7 @@ block::block() { //it wouldnt let me get by without a default constructor so i m
         sides[i] = side();
     }
     name = "";
+    orientation = 0;
 }
 
 block::block(side* sds, string nm) { //initialize with an array of sides and a name
@@ -24,6 +25,7 @@ block::block(side* sds, string nm) { //initialize with an array of sides and a n
         sides[i] = sds[i];
     }
     name = nm;
+    orientation = 0;
 }
 
 block::~block() {
@@ -59,4 +61,65 @@ void block::rotateBlock(Axis direction) {
         sides[bottom] = sides[right];
         sides[right] = temp;
     }
+}
+
+block& block::operator++() {
+    if (orientation >= 0 && orientation <= 2) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 3) {
+        rotateBlock(tb);
+        rotateBlock(lr);
+        orientation++;
+    }
+    else if (orientation >= 4 && orientation <= 6) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 7) {
+        rotateBlock(tb);
+        rotateBlock(lr);
+        orientation++;
+    }
+    else if (orientation >= 8 && orientation <= 10) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 11) {
+        rotateBlock(tb);
+        rotateBlock(lr);
+        orientation++;
+    }
+    else if (orientation >= 12 && orientation <= 14) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 15) {
+        rotateBlock(tb);
+        rotateBlock(lr);
+        rotateBlock(fb);
+        orientation++;
+    }
+    else if (orientation >= 16 && orientation <= 18) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 19) {
+        rotateBlock(tb);
+        rotateBlock(fb);
+        rotateBlock(fb);
+        orientation++;
+    }
+    else if (orientation >= 20 && orientation <= 22) {
+        rotateBlock(tb);
+        orientation++;
+    }
+    else if (orientation == 23) {
+        rotateBlock(tb);
+        rotateBlock(fb);
+        orientation = 0;
+    }
+    
+    return *this;
 }

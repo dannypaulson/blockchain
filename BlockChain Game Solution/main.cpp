@@ -72,22 +72,31 @@ int main(int argc, const char * argv[]) {
     
     //solve the blockchain!
     //.......
-    
+    cout << "about to solve the blockchain" << endl;
     for (int i = 0; i < 24; i++) {
         for (int j = 0; j < 24; j++) {
+            
             for (int k = 0; k < 24; k++) {
+                
                 for (int m = 0; m < 24; m++) {
                     
-                    if (myChain.isSolved())
+                    if (myChain.isSolved()) {
+                        cout << "Solved" << endl;
                         return 0;
+                    }
                     else {
-                        
+                        ++(myChain.blocks[0]);
                     }
                     
                 }
+                ++(myChain.blocks[1]);
+                
             }
+            ++(myChain.blocks[2]);
+            
         }
+        ++(myChain.blocks[3]);
     }
-    
+    cout << "Not solved" << endl;
     return 0;
 }
