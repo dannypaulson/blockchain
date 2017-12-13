@@ -36,6 +36,10 @@ side* block::getSides() { //pretty self explanatory
     return sides;
 }
 
+std::string block::getName() {
+    return name;
+}
+
 void block::rotateBlock(Axis direction) {
     if (direction == tb) {
         //front side moves to left position, right side moves to front, back moves to right, left moves to back

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7973C27B1FC4BEC600287828 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973C27A1FC4BEC600287828 /* main.cpp */; };
+		7973C2851FC4C7A000287828 /* side.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973C2841FC4C7A000287828 /* side.cpp */; };
+		7973C2871FC4C85200287828 /* block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973C2861FC4C85200287828 /* block.cpp */; };
+		7973C2891FC4CF5700287828 /* chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973C2881FC4CF5700287828 /* chain.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		7973C2771FC4BEC600287828 /* BlockChain Game Solution */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "BlockChain Game Solution"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7973C27A1FC4BEC600287828 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7973C2811FC4BF1900287828 /* block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = block.h; sourceTree = "<group>"; };
+		7973C2821FC4BF6D00287828 /* side.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = side.h; sourceTree = "<group>"; };
+		7973C2831FC4C2D300287828 /* chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chain.h; sourceTree = "<group>"; };
+		7973C2841FC4C7A000287828 /* side.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = side.cpp; sourceTree = "<group>"; };
+		7973C2861FC4C85200287828 /* block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = block.cpp; sourceTree = "<group>"; };
+		7973C2881FC4CF5700287828 /* chain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chain.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				7973C27A1FC4BEC600287828 /* main.cpp */,
+				7973C2821FC4BF6D00287828 /* side.h */,
+				7973C2841FC4C7A000287828 /* side.cpp */,
+				7973C2811FC4BF1900287828 /* block.h */,
+				7973C2861FC4C85200287828 /* block.cpp */,
+				7973C2831FC4C2D300287828 /* chain.h */,
+				7973C2881FC4CF5700287828 /* chain.cpp */,
 			);
 			path = "BlockChain Game Solution";
 			sourceTree = "<group>";
@@ -119,7 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7973C2851FC4C7A000287828 /* side.cpp in Sources */,
+				7973C2891FC4CF5700287828 /* chain.cpp in Sources */,
 				7973C27B1FC4BEC600287828 /* main.cpp in Sources */,
+				7973C2871FC4C85200287828 /* block.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,10 @@
 
 using namespace std;
 
+void outputChain(chain c);
+
 int main(int argc, const char * argv[]) {
-    /*
+    
 	//make blocks based on blocks that exist in real life
     
     //block 0 (start indexing from 0 cause this isnt MATLAB
@@ -64,9 +66,9 @@ int main(int argc, const char * argv[]) {
 	side sides_3[6] = {top_3, bottom_3, left_3, right_3, front_3, back_3 };
 
 	block block_3(sides_3, "block 3");
-	*/
 	
-
+	
+/*
 	// perfect blocks
 	side top_0(blue);
 	side bottom_0(red);
@@ -112,7 +114,7 @@ int main(int argc, const char * argv[]) {
 
 	block block_3(sides_3, "block 3");
 	
-
+*/
 
     //make array of blocks
     block blocks[4] = {block_0, block_1, block_2, block_3};
@@ -132,23 +134,37 @@ int main(int argc, const char * argv[]) {
                     
                     if (myChain.isSolved()) {
                         cout << "Solved" << endl;
-						cin.get();
+                        outputChain(myChain);
+						//cin.get();
                         return 0;
                     }
                     else {
-                        //++(myChain.blocks[0]);
+                        ++(myChain.blocks[0]);
                     }
                     
                 }
-                //++(myChain.blocks[1]);
+                ++(myChain.blocks[1]);
                 
             }
-            //++(myChain.blocks[2]);
+            ++(myChain.blocks[2]);
             
         }
-        //++(myChain.blocks[3]);
+        ++(myChain.blocks[3]);
     }
     cout << "Not solved" << endl;
-	cin.get();
+	//cin.get();
     return 0;
+}
+
+void outputChain(chain c) {
+    for (int i = 0; i < 4; i++) {
+        cout << c.blocks[i].getName() << endl;
+        cout << "Top: " << c.blocks[i].getSides()[top].getColor() << endl;
+        cout << "Bottom: " << c.blocks[i].getSides()[bottom].getColor() << endl;
+        cout << "Front: " << c.blocks[i].getSides()[front].getColor() << endl;
+        cout << "Back: " << c.blocks[i].getSides()[back].getColor() << endl;
+        cout << "Left: " << c.blocks[i].getSides()[leftSide].getColor() << endl;
+        cout << "Right: " << c.blocks[i].getSides()[rightSide].getColor() << endl;
+        cout << endl;
+    }
 }

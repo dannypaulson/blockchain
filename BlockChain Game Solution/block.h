@@ -32,6 +32,7 @@ public:
     block(side *sds, std::string nm); //other constructor that takes an array of sides and a name
     ~block(); //destructor
     side* getSides(); //function to get the array of sides
+    std::string getName(); //function to get the block name
     block& operator++(); //overload the prefix increment operator to change the orientation of the block to the "next" orientation
 };
 
