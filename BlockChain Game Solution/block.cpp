@@ -39,10 +39,10 @@ side* block::getSides() { //pretty self explanatory
 void block::rotateBlock(Axis direction) {
     if (direction == tb) {
         //front side moves to left position, right side moves to front, back moves to right, left moves to back
-        side temp(sides[left].getColor());
-        sides[left] = sides[front];
-        sides[front] = sides[right];
-        sides[right] = sides[back];
+        side temp(sides[leftSide].getColor());
+        sides[leftSide] = sides[front];
+        sides[front] = sides[rightSide];
+        sides[rightSide] = sides[back];
         sides[back] = temp;
     }
     else if (direction == lr) {
@@ -56,10 +56,10 @@ void block::rotateBlock(Axis direction) {
     else if (direction == fb) {
         //top moves to right, left moves to top, bottom moves to left, right moves to bottom
         side temp(sides[top].getColor());
-        sides[top] = sides[left];
-        sides[left] = sides[bottom];
-        sides[bottom] = sides[right];
-        sides[right] = temp;
+        sides[top] = sides[leftSide];
+        sides[leftSide] = sides[bottom];
+        sides[bottom] = sides[rightSide];
+        sides[rightSide] = temp;
     }
 }
 

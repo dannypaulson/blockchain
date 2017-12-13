@@ -14,7 +14,7 @@ side::side(Color c) {
 }
 
 side::side() {
-    color = blue;
+    //color = red;
 }
 
 side::~side() {

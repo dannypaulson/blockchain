@@ -14,7 +14,7 @@
 
 enum Axis {tb, lr, fb}; //tb is top-bottom axis, lr is left-rigth axis, fb is front/back axis
                         //spin direction is clockwise as seen from first side in pair (ie as seen from top, left, and front)
-enum Sides {top, bottom, left, right, front, back};
+enum Sides {top, bottom, leftSide, rightSide, front, back};
 
 class block {
     side sides[6]; //variable to hold sides of block; in order: top, bottom, left, right, front, back
