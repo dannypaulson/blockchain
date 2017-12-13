@@ -10,7 +10,7 @@
 #include "chain.h"
 
 chain::chain(block b[4]) { //create chain from an array of blocks
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         blocks[i] = b[i];
     }
 }
