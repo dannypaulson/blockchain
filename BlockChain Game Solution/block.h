@@ -17,7 +17,8 @@ enum Axis {tb, lr, fb}; //tb is top-bottom axis, lr is left-rigth axis, fb is fr
 enum Sides {top, bottom, leftSide, rightSide, front, back};
 
 class block {
-    side sides[6]; //variable to hold sides of block; in order: top, bottom, left, right, front, back
+    side *sides; //dyanimcally allocated array to hold sides of block; in order: top, bottom, left, right, front, back
+    int numOfSides; //variable to hold the number of sides of the block (default is 6)
     std::string name; //name of the block so i can identify it when its solved and copy the solution with the real-life blocks
     int orientation;    /*an int between 0-23 that corresponds to the block's orientation in space.
                         orientation 0 is the root orientation of the cube which is defined when the
@@ -29,10 +30,12 @@ class block {
     void rotateBlock(Axis direction); //function to rotate the block by swapping values in sides[] accordingly depending on axis of rotation
 public:
     block(); //default contructor
-    block(side *sds, std::string nm); //other constructor that takes an array of sides and a name
+    block(side *sds, std::string nm); //other constructor that takes an array of sides and a name; 6 sides by default
+    block(side *sds, std::string nm, int n); //initalize all explicitly
     ~block(); //destructor
     side* getSides(); //function to get the array of sides
     std::string getName(); //function to get the block name
+    int getNumOfSides(); //function to get the number of sides
     block& operator++(); //overload the prefix increment operator to change the orientation of the block to the "next" orientation
 };
 

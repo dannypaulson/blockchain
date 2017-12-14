@@ -19,6 +19,29 @@ int main(int argc, const char * argv[]) {
     
 	//make blocks based on blocks that exist in real life
     
+    /*
+    //blocks for dynamic mem
+    //block 0 (start indexing from 0 cause this isnt MATLAB
+    side top_0(blue);
+    side bottom_0(white);
+    side left_0(red);
+    side right_0(green);
+    side front_0(white);
+    side back_0(red);
+    
+    side *sides_0 = new side[6];
+    sides_0[0].setColor(blue);
+    sides_0[1].setColor(blue);
+    sides_0[2].setColor(blue);
+    sides_0[3].setColor(blue);
+    sides_0[4].setColor(blue);
+    sides_0[5].setColor(blue);
+    
+    block block_0(sides_0, "block 0");
+    
+    */
+    //blocks for static mem
+    
     //block 0 (start indexing from 0 cause this isnt MATLAB
     side top_0(blue);
     side bottom_0(white);

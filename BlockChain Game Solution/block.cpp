@@ -13,23 +13,37 @@
 using namespace std;
 
 block::block() { //it wouldnt let me get by without a default constructor so i made one up
-    for (int i = 0; i < 6; i++) {
-        sides[i] = side();
-    }
+    numOfSides = 6;
     name = "";
     orientation = 0;
+    sides = new side [numOfSides];
+    for (int i = 0; i < numOfSides; i++) {
+        sides[i] = side();
+    }
 }
 
 block::block(side* sds, string nm) { //initialize with an array of sides and a name
-    for (int i = 0; i < 6; i++) {
-        sides[i] = sds[i];
-    }
+    numOfSides = 6;
     name = nm;
     orientation = 0;
+    sides = new side [numOfSides];
+    for (int i = 0; i < numOfSides; i++) {
+        sides[i] = sds[i];
+    }
+}
+
+block::block(side* sds, string nm, int n) {
+    numOfSides = n;
+    name = nm;
+    orientation = 0;
+    sides = new side [numOfSides];
+    for (int i = 0; i < n; i++) {
+        sides[i] = sds[i];
+    }
 }
 
 block::~block() {
-    
+    delete [] sides;
 }
 
 side* block::getSides() { //pretty self explanatory
@@ -40,30 +54,37 @@ std::string block::getName() {
     return name;
 }
 
+int block::getNumOfSides() {
+    return numOfSides;
+}
+
 void block::rotateBlock(Axis direction) {
     if (direction == tb) {
         //front side moves to left position, right side moves to front, back moves to right, left moves to back
-        side temp(sides[leftSide].getColor());
+        side *temp = new side(sides[leftSide].getColor());
         sides[leftSide] = sides[front];
         sides[front] = sides[rightSide];
         sides[rightSide] = sides[back];
-        sides[back] = temp;
+        sides[back] = *temp;
+        delete temp;
     }
     else if (direction == lr) {
         //top moves to front, back moves to top, bottom moves to back, front moves to bottom
-        side temp(sides[top].getColor());
+        side *temp = new side(sides[top].getColor());
         sides[top] = sides[back];
         sides[back] = sides[bottom];
         sides[bottom] = sides[front];
-        sides[front] = temp;
+        sides[front] = *temp;
+        delete temp;
     }
     else if (direction == fb) {
         //top moves to right, left moves to top, bottom moves to left, right moves to bottom
-        side temp(sides[top].getColor());
+        side *temp = new side(sides[top].getColor());
         sides[top] = sides[leftSide];
         sides[leftSide] = sides[bottom];
         sides[bottom] = sides[rightSide];
-        sides[rightSide] = temp;
+        sides[rightSide] = *temp;
+        delete temp;
     }
 }
 

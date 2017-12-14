@@ -12,10 +12,11 @@
 #include "block.h"
 
 class chain {
-    
+    int numOfBlocks; //variable to indicate the number of blocks in the chain
 public:
-    block blocks[4]; //chain is such that the 4 in-play surfaces are the top, front, bottom, and back (ie blocks l/r sides are touching eachother)
-    chain(block b[4]); //constructor that takes an array of 4 blocks
+    block *blocks; //chain is such that the in-play surfaces are the top, front, bottom, and back (ie blocks l/r sides are touching eachother)
+    chain(block *b); //constructor that takes an array of blocks (default 4 blocks)
+    chain(block *b, int n); //constructor for explicit amount of blocks
     ~chain(); //destructor
     //void shiftBlocks(); //function to change the order (i think this is unecessary cause the order doesnt matter)
     bool isSolved(); //function to check if the blockchain is solved

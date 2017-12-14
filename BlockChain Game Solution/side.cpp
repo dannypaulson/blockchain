@@ -14,7 +14,7 @@ side::side(Color c) {
 }
 
 side::side() {
-    //color = red;
+    color = red;
 }
 
 side::~side() {
@@ -23,4 +23,8 @@ side::~side() {
 
 Color side::getColor() {
     return color;
+}
+
+void side::setColor(Color c) {
+    color = c;
 }

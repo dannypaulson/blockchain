@@ -19,6 +19,7 @@ public:
     side(Color c); //other constructor
     ~side(); //destructor
     Color getColor(); //function to get the colour of a side
+    void setColor(Color c); //function to set the color of a side
 };
 
 #endif /* side_h */
