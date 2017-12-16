@@ -6,13 +6,11 @@
 //  Copyright © 2017 Daniel Paulson. All rights reserved.
 //
 
-#include <stdio.h>
 #include "block.h"
 #include <string>
 
-using namespace std;
-
-block::block() { //it wouldnt let me get by without a default constructor so i made one up
+//it wouldnt let me get by without a default constructor so i made one up
+block::block() {
     numOfSides = 6;
     name = "";
     orientation = 0;
@@ -22,7 +20,8 @@ block::block() { //it wouldnt let me get by without a default constructor so i m
     }
 }
 
-block::block(side* sds, string nm) { //initialize with an array of sides and a name
+//overloaded contructor to initialize with an array of sides and a name
+block::block(side* sds, std::string nm) {
     numOfSides = 6;
     name = nm;
     orientation = 0;
@@ -32,7 +31,8 @@ block::block(side* sds, string nm) { //initialize with an array of sides and a n
     }
 }
 
-block::block(side* sds, string nm, int n) {
+//overloaded constructor to initialize with an array of sides, a name, and a number of sides
+block::block(side* sds, std::string nm, int n) {
     numOfSides = n;
     name = nm;
     orientation = 0;
@@ -43,10 +43,10 @@ block::block(side* sds, string nm, int n) {
 }
 
 block::~block() {
-    delete [] sides;
+    //delete [] sides;
 }
 
-side* block::getSides() { //pretty self explanatory
+side* block::getSides() {
     return sides;
 }
 
@@ -58,36 +58,35 @@ int block::getNumOfSides() {
     return numOfSides;
 }
 
+//function to rotate block about specified axis
 void block::rotateBlock(Axis direction) {
-    if (direction == tb) {
-        //front side moves to left position, right side moves to front, back moves to right, left moves to back
-        side *temp = new side(sides[leftSide].getColor());
-        sides[leftSide] = sides[front];
-        sides[front] = sides[rightSide];
-        sides[rightSide] = sides[back];
-        sides[back] = *temp;
+    if (direction == tb) { //front side moves to left position, right side moves to front, back moves to right, left moves to back
+        side *temp = new side(sides[left_].getColor());
+        sides[left_] = sides[front_];
+        sides[front_] = sides[right_];
+        sides[right_] = sides[back_];
+        sides[back_] = *temp;
         delete temp;
     }
-    else if (direction == lr) {
-        //top moves to front, back moves to top, bottom moves to back, front moves to bottom
-        side *temp = new side(sides[top].getColor());
-        sides[top] = sides[back];
-        sides[back] = sides[bottom];
-        sides[bottom] = sides[front];
-        sides[front] = *temp;
+    else if (direction == lr) { //top moves to front, back moves to top, bottom moves to back, front moves to bottom
+        side *temp = new side(sides[top_].getColor());
+        sides[top_] = sides[back_];
+        sides[back_] = sides[bottom_];
+        sides[bottom_] = sides[front_];
+        sides[front_] = *temp;
         delete temp;
     }
-    else if (direction == fb) {
-        //top moves to right, left moves to top, bottom moves to left, right moves to bottom
-        side *temp = new side(sides[top].getColor());
-        sides[top] = sides[leftSide];
-        sides[leftSide] = sides[bottom];
-        sides[bottom] = sides[rightSide];
-        sides[rightSide] = *temp;
+    else if (direction == fb) { //top moves to right, left moves to top, bottom moves to left, right moves to bottom
+        side *temp = new side(sides[top_].getColor());
+        sides[top_] = sides[left_];
+        sides[left_] = sides[bottom_];
+        sides[bottom_] = sides[right_];
+        sides[right_] = *temp;
         delete temp;
     }
 }
 
+//function to overload operator++ to change orientation of block
 block& block::operator++() {
     if (orientation >= 0 && orientation <= 2) {
         rotateBlock(tb);

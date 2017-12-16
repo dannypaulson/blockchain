@@ -9,7 +9,8 @@
 #include <iostream>
 #include "chain.h"
 
-chain::chain(block *b) { //create chain from an array of blocks
+//constructor to create chain from an array of blocks (default 4)
+chain::chain(block *b) {
     numOfBlocks = 4;
     blocks = new block[numOfBlocks];
     for (int i = 0; i < numOfBlocks; i++) {
@@ -17,6 +18,7 @@ chain::chain(block *b) { //create chain from an array of blocks
     }
 }
 
+//constructor to create chain from an array of blocks of size n
 chain::chain(block *b, int n) {
     numOfBlocks = n;
     blocks = new block[numOfBlocks];
@@ -28,8 +30,10 @@ chain::chain(block *b, int n) {
 chain::~chain() {
     delete[] blocks;
 }
+
+
 /*
-void chain::shiftBlocks() { //just rearrange the array of blocks (again wont change the solution)
+void chain::shiftBlocks() {
     block temp = blocks[0];
     blocks[0] = blocks[1];
     blocks[1] = blocks[2];
@@ -38,25 +42,30 @@ void chain::shiftBlocks() { //just rearrange the array of blocks (again wont cha
 }
 */
 
-bool chain::isSolved() { //read all of the colors of the tops, bottoms, fronts, and backs of the four blocks into arrays
-    Color *tops = new Color[numOfBlocks];
-    Color *fronts = new Color[numOfBlocks];
-    Color *bottoms = new Color[numOfBlocks];
-    Color *backs = new Color[numOfBlocks];
-    for (int i = 0; i < numOfBlocks; i++) {
-        tops[i] = blocks[i].getSides()[top].getColor(); //lol these are confusing but they just get the colors
-        fronts[i] = blocks[i].getSides()[front].getColor();
-        bottoms[i] = blocks[i].getSides()[bottom].getColor();
-        backs[i] = blocks[i].getSides()[back].getColor();
-    }
-    for (int i = 0; i < numOfBlocks - 1; i++) { //check if there are any duplicates in any of the arrays - the object of the game is to not have duplicates
-        for (int j = i + 1; j < numOfBlocks; j++)
-            if (tops[i] == tops[j] || fronts[i] == fronts[j] || bottoms[i] == bottoms[j] || backs[i] == backs[j]) {
-                return false; //if there are duplicates, return false cause its not solved yet
+//function to check if the chain is solved
+bool chain::isSolved() {
+    //look at each edge one at a time
+    for (int edge = top_; edge <= right_; edge++) {
+        
+        //compare the colors of the blocks
+        for (int i = 0; i < numOfBlocks - 1; i++) {
+            
+            for (int j = i + 1; j < numOfBlocks; j++) {
+                
+                //if they are the same color then it's not solved yet
+                if (blocks[i].getSides()[edge].getColor() == blocks[j].getSides()[edge].getColor()) {
+                    
+                    return false;
+                }
             }
+        }
     }
-    return true; //if we get here there are no duplicates so it is solved
+    
+    //if we get here there are no duplicates so it is solved
+    return true;
 }
+
+//function to rotate a specific block in the chain
 /*
 void chain::rotateBlock(int i, Axis direction) { //rotate block i about axis direction
     blocks[i].rotateBlock(direction);

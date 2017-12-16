@@ -19,29 +19,6 @@ int main(int argc, const char * argv[]) {
     
 	//make blocks based on blocks that exist in real life
     
-    /*
-    //blocks for dynamic mem
-    //block 0 (start indexing from 0 cause this isnt MATLAB
-    side top_0(blue);
-    side bottom_0(white);
-    side left_0(red);
-    side right_0(green);
-    side front_0(white);
-    side back_0(red);
-    
-    side *sides_0 = new side[6];
-    sides_0[0].setColor(blue);
-    sides_0[1].setColor(blue);
-    sides_0[2].setColor(blue);
-    sides_0[3].setColor(blue);
-    sides_0[4].setColor(blue);
-    sides_0[5].setColor(blue);
-    
-    block block_0(sides_0, "block 0");
-    
-    */
-    //blocks for static mem
-    
     //block 0 (start indexing from 0 cause this isnt MATLAB
     side top_0(blue);
     side bottom_0(white);
@@ -89,55 +66,6 @@ int main(int argc, const char * argv[]) {
 	side sides_3[6] = {top_3, bottom_3, left_3, right_3, front_3, back_3 };
 
 	block block_3(sides_3, "block 3");
-	
-	
-/*
-	// perfect blocks
-	side top_0(blue);
-	side bottom_0(red);
-	side front_0(white);
-	side back_0(green);
-	side right_0(blue);
-	side left_0(blue);
-
-	side sides_0[6] = { top_0, bottom_0, left_0, right_0, front_0, back_0 };
-
-	block block_0(sides_0, "block 0");
-
-	side top_1(red);
-	side bottom_1(white);
-	side front_1(green);
-	side back_1(blue);
-	side left_1(blue);
-	side right_1(blue);
-
-	side sides_1[6] = { top_1, bottom_1, left_1, right_1, front_1, back_1 };
-
-	block block_1(sides_1, "block 1");
-
-	side top_2(white);
-	side bottom_2(green);
-	side front_2(blue);
-	side back_2(red);
-	side left_2(blue);
-	side right_2(blue);
-
-	side sides_2[6] = { top_2, bottom_2, left_2, right_2, front_2, back_2 };
-
-	block block_2(sides_2, "block 2");
-
-	side top_3(green);
-	side bottom_3(blue);
-	side front_3(red);
-	side back_3(white);
-	side left_3(blue);
-	side right_3(blue);
-
-	side sides_3[6] = { top_3, bottom_3, left_3, right_3, front_3, back_3 };
-
-	block block_3(sides_3, "block 3");
-	
-*/
 
     //make array of blocks
     block blocks[4] = {block_0, block_1, block_2, block_3};
@@ -146,7 +74,6 @@ int main(int argc, const char * argv[]) {
     chain myChain(blocks);
     
     //solve the blockchain!
-    //.......
     cout << "about to solve the blockchain" << endl;
     for (int i = 0; i < 24; i++) {
         for (int j = 0; j < 24; j++) {
@@ -182,12 +109,60 @@ int main(int argc, const char * argv[]) {
 void outputChain(chain c) {
     for (int i = 0; i < 4; i++) {
         cout << c.blocks[i].getName() << endl;
-        cout << "Top: " << c.blocks[i].getSides()[top].getColor() << endl;
-        cout << "Bottom: " << c.blocks[i].getSides()[bottom].getColor() << endl;
-        cout << "Front: " << c.blocks[i].getSides()[front].getColor() << endl;
-        cout << "Back: " << c.blocks[i].getSides()[back].getColor() << endl;
-        cout << "Left: " << c.blocks[i].getSides()[leftSide].getColor() << endl;
-        cout << "Right: " << c.blocks[i].getSides()[rightSide].getColor() << endl;
+        cout << "Top: " << c.blocks[i].getSides()[top_].getColor() << endl;
+        cout << "Bottom: " << c.blocks[i].getSides()[bottom_].getColor() << endl;
+        cout << "Front: " << c.blocks[i].getSides()[front_].getColor() << endl;
+        cout << "Back: " << c.blocks[i].getSides()[back_].getColor() << endl;
+        cout << "Left: " << c.blocks[i].getSides()[left_].getColor() << endl;
+        cout << "Right: " << c.blocks[i].getSides()[right_].getColor() << endl;
         cout << endl;
     }
 }
+
+/*
+	// perfect blocks
+	side top_0(blue);
+	side bottom_0(red);
+	side front_0(white);
+	side back_0(green);
+	side right_0(blue);
+	side left_0(blue);
+ 
+	side sides_0[6] = { top_0, bottom_0, left_0, right_0, front_0, back_0 };
+ 
+	block block_0(sides_0, "block 0");
+ 
+	side top_1(red);
+	side bottom_1(white);
+	side front_1(green);
+	side back_1(blue);
+	side left_1(blue);
+	side right_1(blue);
+ 
+	side sides_1[6] = { top_1, bottom_1, left_1, right_1, front_1, back_1 };
+ 
+	block block_1(sides_1, "block 1");
+ 
+	side top_2(white);
+	side bottom_2(green);
+	side front_2(blue);
+	side back_2(red);
+	side left_2(blue);
+	side right_2(blue);
+ 
+	side sides_2[6] = { top_2, bottom_2, left_2, right_2, front_2, back_2 };
+ 
+	block block_2(sides_2, "block 2");
+ 
+	side top_3(green);
+	side bottom_3(blue);
+	side front_3(red);
+	side back_3(white);
+	side left_3(blue);
+	side right_3(blue);
+ 
+	side sides_3[6] = { top_3, bottom_3, left_3, right_3, front_3, back_3 };
+ 
+	block block_3(sides_3, "block 3");
+	
+ */
