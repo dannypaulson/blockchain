@@ -14,7 +14,10 @@ chain::chain(block *b) {
     numOfBlocks = 4;
     blocks = new block[numOfBlocks];
     for (int i = 0; i < numOfBlocks; i++) {
-        blocks[i] = b[i];
+        for (int j = 0; j < b[i].getNumOfSides(); j++) {
+            Color c = b[i].getSides()[j].getColor();
+            blocks[i].getSides()[j].setColor(c);
+        }
     }
 }
 
@@ -23,7 +26,10 @@ chain::chain(block *b, int n) {
     numOfBlocks = n;
     blocks = new block[numOfBlocks];
     for (int i = 0; i < numOfBlocks; i++) {
-        blocks[i] = b[i];
+        for (int j = 0; j < b[i].getNumOfSides(); j++) {
+            Color c = b[i].getSides()[j].getColor();
+            blocks[i].getSides()[j].setColor(c);
+        }
     }
 }
 

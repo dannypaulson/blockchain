@@ -27,7 +27,7 @@ block::block(side* sds, std::string nm) {
     orientation = 0;
     sides = new side [numOfSides];
     for (int i = 0; i < numOfSides; i++) {
-        sides[i] = sds[i];
+        sides[i].setColor(sds[i].getColor());
     }
 }
 
@@ -37,8 +37,8 @@ block::block(side* sds, std::string nm, int n) {
     name = nm;
     orientation = 0;
     sides = new side [numOfSides];
-    for (int i = 0; i < n; i++) {
-        sides[i] = sds[i];
+    for (int i = 0; i < numOfSides; i++) {
+        sides[i].setColor(sds[i].getColor());
     }
 }
 
