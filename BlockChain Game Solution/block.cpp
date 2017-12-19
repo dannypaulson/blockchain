@@ -14,9 +14,8 @@ block::block() {
     numOfSides = 6;
     name = "";
     orientation = 0;
-    sides = new side [numOfSides];
     for (int i = 0; i < numOfSides; i++) {
-        sides[i] = side();
+        sides.push_back(side());
     }
 }
 
@@ -25,9 +24,8 @@ block::block(side* sds, std::string nm) {
     numOfSides = 6;
     name = nm;
     orientation = 0;
-    sides = new side [numOfSides];
     for (int i = 0; i < numOfSides; i++) {
-        sides[i].setColor(sds[i].getColor());
+        sides.push_back(sds[i]);
     }
 }
 
@@ -36,17 +34,15 @@ block::block(side* sds, std::string nm, int n) {
     numOfSides = n;
     name = nm;
     orientation = 0;
-    sides = new side [numOfSides];
     for (int i = 0; i < numOfSides; i++) {
-        sides[i].setColor(sds[i].getColor());
+        sides.push_back(sds[i]);
     }
 }
 
 block::~block() {
-    //delete [] sides;
 }
 
-side* block::getSides() {
+std::vector<side> block::getSides() {
     return sides;
 }
 

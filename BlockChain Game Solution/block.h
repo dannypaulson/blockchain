@@ -11,6 +11,7 @@
 
 #include "side.h"
 #include <string>
+#include <vector>
 
 //define an enum for the axis of rotation of a block
 enum Axis {tb, lr, fb};
@@ -23,8 +24,8 @@ enum Axis {tb, lr, fb};
 enum Sides {top_, bottom_, left_, right_, front_, back_};
 
 class block {
-    //dyanimcally allocated array to hold sides of block; in order: top, bottom, left, right, front, back
-    side *sides;
+    //vector to hold sides of block; in order: top, bottom, left, right, front, back
+    std::vector<side> sides;
     
     //variable to hold the number of sides of the block (default is 6)
     int numOfSides;
@@ -59,7 +60,7 @@ public:
     ~block();
     
     //function to get the array of sides
-    side* getSides();
+    std::vector<side> getSides();
     
     //function to get the block name
     std::string getName();

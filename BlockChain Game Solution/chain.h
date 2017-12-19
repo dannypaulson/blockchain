@@ -16,8 +16,8 @@ class chain {
     int numOfBlocks;
     
 public:
-    //dynamically allocated array of blocks that make up the chain
-    block *blocks;
+    //vector of blocks that make up the chain
+    std::vector<block> blocks;
     /*
      chain is such that the in-play surfaces are the top, front, left, and right (ie blocks t/bt sides are touching eachother)
      */

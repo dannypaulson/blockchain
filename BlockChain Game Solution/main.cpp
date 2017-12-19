@@ -7,8 +7,6 @@
 //
 
 #include <iostream>
-#include "side.h"
-#include "block.h"
 #include "chain.h"
 
 using namespace std;
@@ -19,7 +17,7 @@ int main(int argc, const char * argv[]) {
     
 	//make blocks based on blocks that exist in real life
     
-    //block 0 (start indexing from 0 cause this isnt MATLAB
+    //block 0
     side top_0(blue);
     side bottom_0(white);
     side left_0(red);
@@ -107,14 +105,15 @@ int main(int argc, const char * argv[]) {
 }
 
 void outputChain(chain c) {
+    string sideColors[] = { "Blue", "Green", "Red", "White" };
     for (int i = 0; i < 4; i++) {
         cout << c.blocks[i].getName() << endl;
-        cout << "Top: " << c.blocks[i].getSides()[top_].getColor() << endl;
-        cout << "Bottom: " << c.blocks[i].getSides()[bottom_].getColor() << endl;
-        cout << "Front: " << c.blocks[i].getSides()[front_].getColor() << endl;
-        cout << "Back: " << c.blocks[i].getSides()[back_].getColor() << endl;
-        cout << "Left: " << c.blocks[i].getSides()[left_].getColor() << endl;
-        cout << "Right: " << c.blocks[i].getSides()[right_].getColor() << endl;
+        cout << "Top: " << sideColors[c.blocks[i].getSides()[top_].getColor()] << endl;
+        cout << "Bottom: " << sideColors[c.blocks[i].getSides()[bottom_].getColor()] << endl;
+        cout << "Front: " << sideColors[c.blocks[i].getSides()[front_].getColor()] << endl;
+        cout << "Back: " << sideColors[c.blocks[i].getSides()[back_].getColor()] << endl;
+        cout << "Left: " << sideColors[c.blocks[i].getSides()[left_].getColor()] << endl;
+        cout << "Right: " << sideColors[c.blocks[i].getSides()[right_].getColor()] << endl;
         cout << endl;
     }
 }
