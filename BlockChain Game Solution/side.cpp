@@ -6,7 +6,6 @@
 //  Copyright © 2017 Daniel Paulson. All rights reserved.
 //
 
-#include <stdio.h>
 #include "side.h"
 
 side::side(Color c) {
@@ -14,7 +13,7 @@ side::side(Color c) {
 }
 
 side::side() {
-    //color = red;
+    color = red;
 }
 
 side::~side() {
@@ -23,4 +22,8 @@ side::~side() {
 
 Color side::getColor() {
     return color;
+}
+
+void side::setColor(Color c) {
+    color = c;
 }

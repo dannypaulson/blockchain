@@ -12,13 +12,33 @@
 #include "block.h"
 
 class chain {
+    //variable to indicate the number of blocks in the chain
+    int numOfBlocks;
     
 public:
-    block blocks[4]; //chain is such that the 4 in-play surfaces are the top, front, bottom, and back (ie blocks l/r sides are touching eachother)
-    chain(block b[4]); //constructor that takes an array of 4 blocks
-    ~chain(); //destructor
-    //void shiftBlocks(); //function to change the order (i think this is unecessary cause the order doesnt matter)
-    bool isSolved(); //function to check if the blockchain is solved
-    //void rotateBlock(int i, Axis direction); //function to rotate a block - calls the rotateBlock() in block class for a specific block in the chain (this seems redundant but whatever)
+    //vector of blocks that make up the chain
+    std::vector<block> blocks;
+    /*
+     chain is such that the in-play surfaces are the top, front, left, and right (ie blocks t/bt sides are touching eachother)
+     */
+    
+    //constructor that takes an array of blocks (default 4 blocks)
+    chain(block *b);
+    
+    //constructor for explicit amount of blocks
+    chain(block *b, int n);
+    
+    //destructor
+    ~chain();
+    
+    //function to change the order (i think this is unecessary cause the order doesnt matter)
+    //void shiftBlocks();
+    
+    //function to check if the blockchain is solved
+    bool isSolved();
+    
+    //function to rotate a block - calls the rotateBlock() in block class for a specific block in the chain
+    //void rotateBlock(int i, Axis direction);
 };
+
 #endif /* chain_h */
