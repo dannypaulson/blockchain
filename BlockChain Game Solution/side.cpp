@@ -8,6 +8,7 @@
 
 #include "side.h"
 
+
 side::side(Color c) {
     color = c;
 }

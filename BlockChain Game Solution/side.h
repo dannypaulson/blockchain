@@ -15,7 +15,7 @@ class side {
     Color color;
     
 public:
-    //default constructor
+    //constructor
     side();
     
     //other constructor
